@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   has_secure_password
   
-  # 1つのUserは複数のTopic(topics)を持つ
-  # has_many関連付けを宣言する場合、相手のモデル名は「複数形」にする(Railsは、関連付けの名前から自動的にモデルのクラス名を推測するため)
+  ### 1つのUserは複数のTopic(topics)を持つ
+  ### has_many関連付けを宣言する場合、相手のモデル名は「複数形」にする(Railsは、関連付けの名前から自動的にモデルのクラス名を推測するため)
   has_many :topics
+  has_many :favorites
+  ### through : そのユーザーが「いいね」したTopicデータをすべて取得することができる
+  has_many :favorite_topics, through: :favorites, source: 'topic'
 end

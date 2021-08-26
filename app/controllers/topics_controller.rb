@@ -1,11 +1,8 @@
 class TopicsController < ApplicationController
   def index
-    # Topic.allでTopicモデル内の全レコードを@topicsへ代入
-    # app/views/topics/index.html.erb の <@topics.each do |topic|> 内で、
-    # 「topic.user.name」「topic.image.url」「topic.description」の表示処理を行っている
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
   end
-  
+
   def new
     @topic = Topic.new
   end

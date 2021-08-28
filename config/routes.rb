@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/new'
   get 'topics/new'
   get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   get 'pages/help'
   get 'pages/link'
 
-  resources :users
+#  resources :users
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -20,9 +21,12 @@ Rails.application.routes.draw do
   # 「rails s」サーバーに設定を読み込ませて、「rake routes」コマンドで確認できる(https://pikawaka.com/rails/resources)
   resources :users
   resources :topics
+  resources :comments
   
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
   delete '/favorites', to: 'favorites#destroy'
 
+  get 'comments/index'
+  post '/comments', to: 'comments#create'
 end

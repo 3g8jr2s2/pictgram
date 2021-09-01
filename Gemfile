@@ -47,6 +47,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   
+  gem 'dotenv-rails'
   # Use sqlite3 as the database for Active Record
   # 2021.08.31 add Herokuが sqlite3 をサポートしていない
   gem 'sqlite3'
@@ -82,3 +83,5 @@ gem 'bcrypt'
 gem 'carrierwave'
 
 gem 'mysql2', group: :development
+
+gem 'fog-aws'

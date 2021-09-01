@@ -4,9 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  # 2021.09.01 Replace 画像アップロード先の変更
+  # 2021.09.01 Replace start :fileから:fogへ変更
   # storage :file
   storage :fog
+  # 2021.09.01 Replace end   :fileから:fogへ変更
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
